@@ -270,12 +270,14 @@ var myApp = angular
 		$scope.error = "What is the error ? "+ response.statusText;
 	}
 
-
-	$http({
-			method: 'GET',
-			url: 'includes/connection-users.php'
-		})
-			.then(successCallBack, errorCallBack);
+	$scope.getData = function(){
+		$http({
+				method: 'GET',
+				url: 'includes/connection-users.php'
+			})
+				.then(successCallBack, errorCallBack);
+	}
+	
 		
 });
 
