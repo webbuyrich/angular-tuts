@@ -1,0 +1,460 @@
+<!doctype html>
+<html ng-app="myModule">
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Begin AngularJS</title>
+       
+        <script src="scripts/angular.js"></script>
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/styles.css">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+
+        <!-- ANGULAR SCRIPTS -->
+       	<script src="js/app.js"></script>
+
+
+        <link rel="author" href="humans.txt">
+    </head>
+    <body ng-controller="myController">
+        
+    	<div class="container">  
+            <div class="page-header text-center">
+                <h1>{{ message }}</h1>
+            </div> 
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                            <!-- Accoridian 1 -->
+                            <div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id="headingOne">
+                                    <h4 class="panel-title">
+                                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                            Output Text While Typing
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                                    <div class="panel-body">
+                                        <div class="row">
+                                            <div class="container">
+                                                Type here : <input type="text" ng-model="greeting"><button ng-click="clearGreeting()">reset</button>
+                                                <br />                            
+                                                <h1>{{ greeting }}</h1>
+                                            </div>                               
+                                        </div>
+                                    </div>
+                                </div>
+                          </div>
+                          <!-- Accoridian 1 -->
+
+                            <!-- Accoridian 2 -->
+                            <div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id="headingTwo">
+                                    <h4 class="panel-title">
+                                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                          Display Data From ng-src Directive
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                    <div class="panel-body">
+                                        <div class="info">
+                                            <div class="row">
+                                                <p>First Name: {{ player.firstName }}</p>
+                                                <p>Last Name: {{ player.lastName }}</p>
+                                            </div>
+                                            <div class="row">
+                                                <img ng-src="{{ player.image }}" title="{{ player.firstName + ' ' + player.lastName }}" alt="{{ player.firstName + ' ' + player.lastName }}" height="220" width="148">
+                                            </div>  
+                                        </div>                                                            
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Accoridian 2 -->
+
+                            <!-- Accoridian 3 -->
+                            <div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id="headingThree">
+                                  <h4 class="panel-title">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                      Two Way Data Binding
+                                    </a>
+                                  </h4>
+                                </div>
+                                <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                                    <div class="panel-body">                                   
+                                        <div class="info">
+                                           <div class="col-md-6">
+                                             <table class="table table-striped table-hover">
+                                               <tr>
+                                                   <td>First Name: </td>
+                                                   <td><input type="text" ng-model="employee.firstName"></td>
+                                               </tr>
+                                               <tr>
+                                                   <td>Last Name: </td>
+                                                   <td><input type="text" ng-model="employee.lastName"></td>
+                                               </tr>
+                                               <tr>
+                                                   <td>Gender Name: </td>
+                                                   <td><input type="text" ng-model="employee.gender"></td>
+                                               </tr>
+                                             </table>  
+                                           </div>
+                                           <div class="col-md-6">
+                                               <table class="table table-striped table-hover">
+                                                   <tr>
+                                                       <td>First Name: </td>
+                                                       <td>{{ employee.firstName }}</td>
+                                                   </tr>
+                                                   <tr>
+                                                       <td>Last Name: </td>
+                                                       <td>{{ employee.lastName }}</td>
+                                                   </tr>
+                                                   <tr>
+                                                       <td>Gender Name: </td>
+                                                       <td>{{ employee.gender }}</td>
+                                                   </tr>
+                                               </table>
+                                           </div>               
+                                        </div>                                  
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Accoridian 3 -->
+
+                            <!-- Accoridian 4 -->
+                            <div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id="heading4">
+                                    <h4 class="panel-title">
+                                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse4" aria-expanded="false" aria-controls="collapse4">
+                                        Sorting Rows
+                                        </a>
+                                     </h4>
+                                 </div>
+                                <div id="collapse4" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading4">
+                                    <div class="panel-body">                             
+                                        <div class="info">
+                                            <!--Rows Displayed :<input type="number" step="1" min="1" max="10" ng-model="rowLimit">-->
+                                            <!--Order By :  
+                                                    <select type="text" ng-model="sortColumn">
+                                                        <option value="firstName">First Name A -Z </option>
+                                                        <option value="-firstName">First Name Z - A</option>
+                                                        <option value="lastName">Last Name A - Z</option>
+                                                        <option value="-lastName">Last Name Z - A</option>
+                                                        <option value="gender">Gender Female - Male</option>
+                                                        <option value="-gender">Gender Male - Female</option>
+                                                        <option value="salary">Salary Low to Hi</option> 
+                                                        <option value="-salary">Salary Hi to Low</option>                                                                        
+                                                    </select>-->                                     
+                                            <table class="table table-striped table-hover" ng-model="employees">
+                                                <tr>
+                                                    <thead>
+                                                        <tr class="success">
+                                                            <th ng-click="sortData('firstName')">First Name <i ng-class="getSortClass('firstName')"></i></th>
+                                                            <th ng-click="sortData('lastName')">Last Name <i ng-class="getSortClass('lastName')"></i></th>
+                                                            <th ng-click="sortData('gender')">Gender <i ng-class="getSortClass('gender')"></i></th>
+                                                            <th ng-click="sortData('salary')">Salary <i ng-class="getSortClass('salary')"></i></th>
+                                                            <th>Date</th>
+                                                        </tr>                                                  
+                                                    </thead>
+                                                </tr>
+                                                <tr class="primary" ng-repeat="employee1 in employees | orderBy: sortColumn:reverseSort">
+                                                    <td>{{ employee1.firstName | uppercase }}</td>
+                                                    <td>{{ employee1.lastName  | uppercase }}</td>
+                                                    <td>{{ employee1.gender | lowercase}}</td>
+                                                    <td>{{ employee1.salary | currency }}</td>
+                                                    <td>{{ employee1.date | date: 'longDate' }}</td>
+                                                </tr>
+                                            </table>
+                                        </div>                             
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Accoridian 4 -->
+
+                            <!-- Accoridian 5 -->
+                            <div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id="heading5">
+                                    <h4 class="panel-title">
+                                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse5" aria-expanded="false" aria-controls="collapse5">
+                                          Counting Likes and Dislikes
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapse5" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading5">
+                                    <div class="panel-body">
+                                        <div class="info">                                       
+                                                <table class="table table-striped table-hover" ng-model="technologies">
+                                                    <tr>
+                                                        <thead>
+                                                            <tr class="success">
+                                                                <td>Technology</td>
+                                                                <td>Likes</td>
+                                                                <td>Dislikes</td>
+                                                                <td>Action</td>
+                                                                
+                                                            </tr>
+                                                            
+                                                        </thead>
+                                                    </tr>
+                                                    <tr class="primary" ng-repeat="technology in technologies">
+                                                        <td>{{ technology.name }}</td>
+                                                        <td>{{ technology.likes }}</td>
+                                                        <td>{{ technology.dislikes }}</td>
+                                                        <td>
+                                                           <input type="button" value="like" ng-click="incrementLikes(technology)">
+                                                           <input type="button" value="dislike" ng-click="incrementDislikes(technology)">
+                                                           <input type="button" value="reset" ng-click="resetAllLikes(technology)">
+
+                                                        </td>
+                                                    </tr>
+                                              </table>                                                              
+                                        </div>                                                            
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Accoridian 5 -->
+
+                            <!-- Accoridian 6 -->
+                            <div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id="heading6">
+                                    <h4 class="panel-title">
+                                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse6" aria-expanded="false" aria-controls="collapse6">
+                                          Nested List Items
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapse6" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading6">
+                                    <div class="panel-body">
+                                        <div class="info">                                       
+                                            <div class="row" ng-model="states">
+                                                <ul>
+                                                    <li ng-repeat="state in states" ng-init="parentIndex=$index">
+                                                        {{ state.name }}  - Index = {{ $index }}
+                                                        <ul>
+                                                            <li ng-repeat="city in state.cities">
+                                                                  {{ city.name }} - Parent Index = {{ parentIndex }}, Index = {{ $index }}
+                                                            </li>
+                                                        </ul>
+                                                    </li>                      
+                                                          
+                                                </ul>
+                                            </div>                                                           
+                                        </div>                                                            
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Accoridian 6 -->
+
+                            <!-- Accoridian 7 -->
+                            <div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id="heading7">
+                                    <h4 class="panel-title">
+                                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse7" aria-expanded="false" aria-controls="collapse7">
+                                          Multiple Search Filtering
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapse7" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading7">
+                                    <div class="panel-body">
+                                        <div class="info">
+                                            <div class="row">
+                                                <div class="col-md-4"><input ng-model="searchText.name" type="text" class="form-control input-sm" placeholder="Search Name" ></div>
+                                                <div class="col-md-4"><input ng-model="searchText.city" type="text" class="form-control input-sm" placeholder="Search City"></div>
+                                                <div class="col-md-4"><input ng-model="exactMatch" type="checkbox"> Exact Match</div>
+                                            </div>
+                                            <br>
+                                            <table class="table table-striped table-hover" ng-model="visitors">
+                                                <tr>
+                                                    <thead>
+                                                        <tr class="success">
+                                                            <th>Name</th>
+                                                            <th>Gender</th>
+                                                            <th>Salary</th>
+                                                            <th>City</th>
+                                                            
+                                                        </tr>                                                  
+                                                    </thead>
+                                                </tr>
+                                                <tr class="primary" ng-repeat="visitor in visitors | filter: searchText:exactMatch">
+                                                    <td>{{ visitor.name }}</td>
+                                                    <td>{{ visitor.gender }}</td>
+                                                    <td>{{ visitor.city }}</td>
+                                                    <td>{{ visitor.salary }}</td>
+                                                </tr>
+                                            </table>                                                     
+                                        </div>                                                            
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Accoridian 7 -->
+
+                            <!-- Accoridian 8 -->
+                            <div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id="heading8">
+                                    <h4 class="panel-title">
+                                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse8" aria-expanded="false" aria-controls="collapse8">
+                                          Custom Made Filters
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapse8" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading8">
+                                    <div class="panel-body">
+                                        <div class="info">
+                                            <table class="table table-striped table-hover" ng-model="applicants">
+                                                <tr>
+                                                    <thead>
+                                                        <tr class="success">
+                                                            <th>Name</th>
+                                                            <th>Gender</th>
+                                                            <th>Salary</th>
+                                                            <th>City</th>
+                                                            
+                                                        </tr>                                                  
+                                                    </thead>
+                                                </tr>
+                                                <tr class="primary" ng-repeat="applicant in applicants">
+                                                    <td>{{ applicant.name }}</td>
+                                                    <td>{{ applicant.gender | gender }}</td>
+                                                    <td>{{ applicant.city }}</td>
+                                                    <td>{{ applicant.salary }}</td>
+                                                </tr>
+                                            </table>                                                     
+                                        </div>                                                            
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Accoridian 8 -->
+
+                            <!-- Accoridian 9 -->
+                            <div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id="heading9">
+                                    <h4 class="panel-title">
+                                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse9" aria-expanded="false" aria-controls="collapse9">
+                                          Using ng-include to load HTML Pages
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapse9" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading9">
+                                    <div class="panel-body">
+                                        <div class="info">
+                                            <div>
+                                                <select ng-model="employeeView">
+                                                    <option value="employeeList.html">List</option>
+                                                    <option value="employeeTable.html">Table</option>
+                                                </select>
+                                            </div>
+                                            <br>
+                                            <div ng-include="employeeView"></div>
+                                                                                      
+                                        </div>                                                            
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Accoridian 9 -->
+
+                            <!-- Accoridian 10 -->
+                            <div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id="heading10">
+                                    <h4 class="panel-title">
+                                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse10" aria-expanded="false" aria-controls="collapse10">
+                                          Getting Data from Database
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapse10" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading10">
+                                    <div class="panel-body">
+                                        <div class="info">
+                                            <table class="table table-striped table-hover">
+                                                <tr>
+                                                    <thead>
+                                                        <tr class="success">
+                                                            <th>Name</th>
+                                                            <th>Title</th>
+                                                            <th>Supervisor</th>
+                                                            <th>Email</th>
+                                                            
+                                                        </tr>                                                  
+                                                    </thead>
+                                                </tr>
+                                                <tr class="primary" ng-repeat="employee in dbEmployees">
+                                                    <td>{{ employee.FirstName }}</td>
+                                                    <td>{{ employee.Title }}</td>
+                                                    <td>{{ employee.ReportsTo }}</td>
+                                                    <td>{{ employee.Email }}</td>
+                                                </tr>
+                                            </table>        
+                                        </div>                                                            
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Accoridian 10 -->
+                        </div><!--END ACCORDIAN GROUP -->
+                </div>
+                <div class="col-md-6">
+                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                            <!-- Accoridian 11 -->
+                            <div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id="heading11">
+                                    <h4 class="panel-title">
+                                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse11" aria-expanded="false" aria-controls="collapse11">
+                                          Using the HTTP Service
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapse11" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading11">
+                                    <div class="panel-body">
+                                        <div class="info">
+                                            <table class="table table-striped table-hover">
+                                                <tr>
+                                                    <thead>
+                                                        <tr class="success">
+                                                            <th>Last Name</th>
+                                                            <th>City</th>
+                                                            <th>Address</th>
+                                                            <th>Postal Code</th>
+                                                            
+                                                        </tr>                                                  
+                                                    </thead>
+                                                </tr>
+                                                <tr class="primary" ng-repeat="employee in dbEmployeesService">
+                                                    <td>{{ employee.LastName }}</td>
+                                                    <td>{{ employee.City }}</td>
+                                                    <td>{{ employee.Address }}</td>
+                                                    <td>{{ employee.PostalCode }}</td>
+                                                </tr>
+                                            </table>
+                                           
+                                            <div class="bs-component" ng-show="error">
+                                              <div class="alert alert-dismissible alert-danger">
+                                                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                                <h4>Uh Oh...Something went wrong!</h4>
+                                                <p>{{error}}</p>
+                                              </div>
+                                            </div>        
+                                        </div>                                                            
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Accoridian 11 -->
+
+
+                        </div><!--END ACCORDIAN GROUP -->
+                </div>
+                
+                </div><!-- END ROW -->   
+    	</div><!-- END CONTAINER -->   
+    	<footer class="footer">
+            <div class="container">
+               <p class="text-muted">Youtube Tutorial Link <a href="https://www.youtube.com/watch?v=gWmOKmgnQkU&list=PL6n9fhu94yhWKHkcL7RJmmXyxkuFB3KSl&index=2">Angular Modules and Controllers</a></p>
+            </div>
+        </footer>
+    	
+        <script   src="https://code.jquery.com/jquery-2.2.3.min.js"   integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="   crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <script src="js/script.js"></script>
+    </body>
+</html>
